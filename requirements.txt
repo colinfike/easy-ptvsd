@@ -1,0 +1,2 @@
+python-dotenv>=0.7.1
+ptvsd==3.0.0
