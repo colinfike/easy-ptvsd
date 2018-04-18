@@ -25,7 +25,10 @@ test_function('easy peezy')
 This will pause execution until the remote debug session is attached to.
 
 wait_and_break has default secret and address values of ```my_secret``` and ```("0.0.0.0", 3000)``` respectively. You can pass in your desired secret and address to the decorator if you wish to change the defaults.
-```@wait_and_break(secret="custom_secret", address=("127.0.0.1", 3333))```
+
+```
+@wait_and_break(secret="custom_secret", address=("127.0.0.1", 3333))
+```
 
 # Black
 EasyPtvsd uses Black to format it's code to a consistent, determinitistic form. https://github.com/ambv/black
