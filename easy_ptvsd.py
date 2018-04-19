@@ -30,9 +30,11 @@ class wait_and_break:
 
     def __call__(self, function):
         """Run ptvsd code and continue with decorated function."""
+
         def wait_and_break_deco(*args, **kwargs):
             ptvsd.enable_attach(self.secret, address=self.address)
             ptvsd.wait_for_attach()
             ptvsd.break_into_debugger()
-            function(*args, **kwargs)
+            return function(*args, **kwargs)
+
         return wait_and_break_deco

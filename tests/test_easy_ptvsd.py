@@ -32,15 +32,16 @@ class TestWaitAndBreakClass(unittest.TestCase):
     @patch("easy_ptvsd.ptvsd")
     def test_decorated_function_wrapper_functionality(self, mock_ptvsd):
         """Test that the function returned by invoking wait_and_break is functional."""
-        decorated_func_mock = Mock()
+        decorated_func_mock = Mock(return_value="ret val")
         wait_and_break_obj = wait_and_break()
         result = wait_and_break_obj(decorated_func_mock)
 
-        result("positional_arg", key_word_arg="keywordarg")
+        return_value = result("positional_arg", key_word_arg="keywordarg")
 
         self.assertTrue(mock_ptvsd.enable_attach.called)
         self.assertTrue(mock_ptvsd.wait_for_attach.called)
         self.assertTrue(mock_ptvsd.break_into_debugger.called)
+        self.assertEqual(return_value, "ret val")
         decorated_func_mock.assert_called_once_with(
             "positional_arg", key_word_arg="keywordarg"
         )
