@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="easy_ptvsd",
-    version="0.1.0",
+    version="0.1.1",
     description="A convenience package for PTVSD.",
     long_description=(
         "EasyPtvsd is a convenience library that makes it a bit easy to remote"
@@ -16,16 +16,14 @@ setup(
     author_email="colin.fike@gmail.com",
     license="MIT",
     classifiers=[
-        'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development',
-        'Programming Language :: Python :: 3',
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Topic :: Software Development",
+        "Programming Language :: Python :: 3",
     ],
     keywords="ptvsd easy python remote debugging",
-    install_requires=[
-        'ptvsd==3.0.0',
-    ],
-    python_requires='>=3',
+    install_requires=["ptvsd==3.0.0"],
+    python_requires=">=3",
     py_modules=["easy_ptvsd"],
     packages=[],
 )
